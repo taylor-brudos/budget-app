@@ -14,3 +14,17 @@
 .red {
     color: red;
 }
+
+.bolded {
+    font-weight: bold;
+}
+
+.acct {
+    margin: 3%;
+}
+
+.add-acct {
+    min-width: 18%;
+    height: 50px;
+    margin-top: 3%;
+}
