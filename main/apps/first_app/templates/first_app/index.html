@@ -8,6 +8,32 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'first_app/css/main.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script>
+        window.onload = function() {
+        
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            // title: {
+            //     text: "Spending by Category"
+            // },
+            data: [{
+                type: "pie",
+                startAngle: 240,
+                yValueFormatString: "##0.00\"%\"",
+                indexLabel: "{label} {y}",
+                dataPoints: [
+                    {y: 79.45, label: "Rent"},
+                    {y: 7.31, label: "Groceries"},
+                    {y: 7.06, label: "Gas"},
+                    {y: 4.91, label: "Coffee"},
+                    {y: 1.26, label: "Other"}
+                ]
+            }]
+        });
+        chart.render();
+        
+        }
+    </script>
 </head>
 <body>
     <!-- Navbar -->
@@ -20,7 +46,7 @@
             <ul class="navbar-nav mr-auto">
             <!-- need to connect the "href" with the associated links in navbar -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/myaccounts">My Accounts</a>
@@ -33,14 +59,14 @@
     </nav>
     <!-- main content - display of each clickable account balance-->
     <div class="container-fluid">
-        <h2>Net balance</h2>
-        <h4>$1598.02</h4>
-        <h2>Total Spending</h2>
-        <h4>$ 1,589.02 </h4>
-        <h2>Mortgage</h2>
-        <h4>($ 589.22 )</h4>
-        <h2>Groceries</h2>
-        <h4>($89.95)</h4>
+        <div class="centered">
+            <h1>Net balance</h1>
+            <h3 class="green">$1598.02</h3>
+            <h1>Total Spending</h1>
+            <h3 class="red">$ 1,589.02 </h3>
+        </div>
+        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
     </div>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 </body>
 </html>

@@ -1,13 +1,16 @@
-h1 {
-    color: blue;
-    font-size: 40px;
-}
-p {
-    color: green;
-    font-weight: bold;
-}
-
 .inline-b {
     display: inline-block;
     vertical-align: top;
+}
+
+.centered {
+    text-align: center;
+}
+
+.green {
+    color: green;
+}
+
+.red {
+    color: red;
 }
